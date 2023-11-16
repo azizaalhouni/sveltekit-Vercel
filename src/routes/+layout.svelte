@@ -1,53 +1,61 @@
 <script>
-	import Header from './Header.svelte';
 	import './styles.css';
+	import logo from '$lib/images/svelte-logo.svg';
+	import tmdb from '$lib/images/tmbd.svg'
 </script>
 
-<div class="app">
-	<Header />
 
-	<main>
-		<slot />
-	</main>
 
-	<footer>
-		<p>visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to learn SvelteKit</p>
-	</footer>
+<nav>
+
+	<a href="/"> 
+		<img alt="svelteFlix" src={logo}/>
+
+	</a>
+
+	<div class="links">
+		<a href="/search">Search</a>
+		<a href="/watchlist">WatchList</a>
+		<a href="/login">Login</a>
+	</div>
+</nav>
+<div>
+	<slot/>
 </div>
+<footer>
+	<p>Data provided by
+		<a href="https://www.themoviedb.org">
+			<img alt="The Movie DB" src={tmdb}/>
+		</a>
 
+	</p>
+</footer>
 <style>
-	.app {
-		display: flex;
-		flex-direction: column;
-		min-height: 100vh;
+	nav{
+		display:flex;
+		width:100%;
+		height: 3rem;
+		align-items:center;
+		justify-content: space-between;
+		max-width: var(--column);
+		padding: 0 var(--side);
+		color: var(--accent);
 	}
 
-	main {
-		flex: 1;
-		display: flex;
-		flex-direction: column;
-		padding: 1rem;
-		width: 100%;
-		max-width: 64rem;
-		margin: 0 auto;
-		box-sizing: border-box;
+	a{
+		color:inherit;
 	}
-
-	footer {
+	img{
+		height: 1rem;
+	}
+	.links{
 		display: flex;
-		flex-direction: column;
+
+	}
+	footer{
+		display:flex;
 		justify-content: center;
-		align-items: center;
-		padding: 12px;
-	}
-
-	footer a {
-		font-weight: bold;
-	}
-
-	@media (min-width: 480px) {
-		footer {
-			padding: 12px 0;
-		}
+		height: 5rem;
 	}
 </style>
+
