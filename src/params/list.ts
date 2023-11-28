@@ -1,7 +1,7 @@
 
 import {views} from '$lib/views';
 
-export function match(params){
-    return params in views;
+export function match(param){
+    return param in views;
 
 }

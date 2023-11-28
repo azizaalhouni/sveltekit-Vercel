@@ -1,51 +1,82 @@
-export const manifest = {
+export const manifest = (() => {
+function __memo(fn) {
+	let value;
+	return () => value ??= (value = fn());
+}
+
+return {
 	appDir: "_app",
 	appPath: "_app",
 	assets: new Set(["favicon.png","robots.txt"]),
 	mimeTypes: {".png":"image/png",".txt":"text/plain"},
 	_: {
-		entry: {"file":"_app/immutable/start-377cb035.js","imports":["_app/immutable/start-377cb035.js","_app/immutable/chunks/index-bd3d1439.js","_app/immutable/chunks/singletons-0c23d0cb.js","_app/immutable/chunks/index-c98cd7b6.js","_app/immutable/chunks/parse-f0c618df.js"],"stylesheets":[],"fonts":[]},
+		client: {"start":"_app/immutable/entry/start.90c8f97a.js","app":"_app/immutable/entry/app.d9851ce2.js","imports":["_app/immutable/entry/start.90c8f97a.js","_app/immutable/chunks/index.f9f2799d.js","_app/immutable/chunks/singletons.c369181a.js","_app/immutable/entry/app.d9851ce2.js","_app/immutable/chunks/views.2b268a34.js","_app/immutable/chunks/index.f9f2799d.js"],"stylesheets":[],"fonts":[]},
 		nodes: [
-			() => import('./nodes/0.js'),
-			() => import('./nodes/1.js'),
-			() => import('./nodes/2.js'),
-			() => import('./nodes/3.js'),
-			() => import('./nodes/4.js'),
-			() => import('./nodes/5.js')
+			__memo(() => import('./nodes/0.js')),
+			__memo(() => import('./nodes/1.js')),
+			__memo(() => import('./nodes/2.js')),
+			__memo(() => import('./nodes/3.js')),
+			__memo(() => import('./nodes/4.js')),
+			__memo(() => import('./nodes/5.js')),
+			__memo(() => import('./nodes/6.js')),
+			__memo(() => import('./nodes/7.js')),
+			__memo(() => import('./nodes/8.js'))
 		],
 		routes: [
 			{
 				id: "/",
 				pattern: /^\/$/,
 				params: [],
-				page: { layouts: [0], errors: [1], leaf: 2 },
+				page: { layouts: [0,], errors: [1,], leaf: 2 },
 				endpoint: null
 			},
 			{
 				id: "/about",
 				pattern: /^\/about\/?$/,
 				params: [],
-				page: { layouts: [0], errors: [1], leaf: 3 },
+				page: { layouts: [0,], errors: [1,], leaf: 3 },
 				endpoint: null
 			},
 			{
-				id: "/sverdle",
-				pattern: /^\/sverdle\/?$/,
+				id: "/login",
+				pattern: /^\/login\/?$/,
 				params: [],
-				page: { layouts: [0], errors: [1], leaf: 4 },
+				page: { layouts: [0,], errors: [1,], leaf: 4 },
 				endpoint: null
 			},
 			{
-				id: "/sverdle/how-to-play",
-				pattern: /^\/sverdle\/how-to-play\/?$/,
+				id: "/movies/[view=list]",
+				pattern: /^\/movies\/([^/]+?)\/?$/,
+				params: [{"name":"view","matcher":"list","optional":false,"rest":false,"chained":false}],
+				page: { layouts: [0,], errors: [1,], leaf: 6 },
+				endpoint: null
+			},
+			{
+				id: "/movies/[id]",
+				pattern: /^\/movies\/([^/]+?)\/?$/,
+				params: [{"name":"id","optional":false,"rest":false,"chained":false}],
+				page: { layouts: [0,], errors: [1,], leaf: 5 },
+				endpoint: null
+			},
+			{
+				id: "/search",
+				pattern: /^\/search\/?$/,
 				params: [],
-				page: { layouts: [0], errors: [1], leaf: 5 },
+				page: { layouts: [0,], errors: [1,], leaf: 7 },
+				endpoint: null
+			},
+			{
+				id: "/watchlist",
+				pattern: /^\/watchlist\/?$/,
+				params: [],
+				page: { layouts: [0,], errors: [1,], leaf: 8 },
 				endpoint: null
 			}
 		],
 		matchers: async () => {
-			
-			return {  };
+			const { match: list } = await import ('./entries/matchers/list.js')
+			return { list };
 		}
 	}
-};
+}
+})();

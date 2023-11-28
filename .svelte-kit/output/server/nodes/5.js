@@ -1,9 +1,10 @@
-import * as universal from '../entries/pages/sverdle/how-to-play/_page.js';
+import * as universal from '../entries/pages/movies/_id_/_page.ts.js';
 
 export const index = 5;
-export const component = async () => (await import('../entries/pages/sverdle/how-to-play/_page.svelte.js')).default;
-export const file = '_app/immutable/components/pages/sverdle/how-to-play/_page.svelte-26b286c5.js';
+let component_cache;
+export const component = async () => component_cache ??= (await import('../entries/pages/movies/_id_/_page.svelte.js')).default;
 export { universal };
-export const imports = ["_app/immutable/components/pages/sverdle/how-to-play/_page.svelte-26b286c5.js","_app/immutable/chunks/index-bd3d1439.js","_app/immutable/modules/pages/sverdle/how-to-play/_page.js-3ad43a47.js","_app/immutable/chunks/environment-9aa685ef.js","_app/immutable/chunks/_page-9c76c2d7.js"];
-export const stylesheets = ["_app/immutable/assets/_page-89a9e780.css"];
+export const universal_id = "src/routes/movies/[id]/+page.ts";
+export const imports = ["_app/immutable/nodes/5.76f835c5.js","_app/immutable/chunks/api.24b2cd97.js","_app/immutable/chunks/index.f9f2799d.js","_app/immutable/chunks/Carousel.761bebf2.js"];
+export const stylesheets = ["_app/immutable/assets/5.0c77af93.css","_app/immutable/assets/Carousel.4ee40529.css"];
 export const fonts = [];

@@ -1,0 +1,17 @@
+const views = {
+  trending: {
+    title: "Trending",
+    endpoint: "trending/movie/day"
+  },
+  now_playing: {
+    title: "Now playing",
+    endpoint: "movie/now_playing"
+  },
+  upcoming: {
+    title: "Upcoming",
+    endpoint: "movie/upcoming"
+  }
+};
+export {
+  views as v
+};

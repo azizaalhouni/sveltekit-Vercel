@@ -5,22 +5,18 @@ import type { MovieList, MovieDetails } from '$lib/types.d.ts';
 
 export async function load({fetch}) {
 const [trending, now_playing, upcoming] = await Promise.all([
-    (await api.get(fetch,'trending/movie/day')) as MovieList,
-   (await api.get(fetch,'movie/now_playing')) as MovieList,
-    (await api.get(fetch,'movie/upcoming')) as MovieList
+ api.get(fetch,'trending/movie/day') as Promise<MovieList>,
+    api.get(fetch,'movie/now_playing') as Promise<MovieList>,
+     api.get(fetch,'movie/upcoming') as Promise<MovieList>
 ]);
 
-
-
-
 const featured = (await api.get(fetch,`movie/${trending.results[0].id}`,{
-    append_to_response: 'images'
+    append_to_response: 'images,videos,recommendations'
 }))  as MovieDetails;
-
 return{
-    trending,
+    trending: trending.results.slice(1),
     featured,
-    now_playing,
-    upcoming
+    now_playing: now_playing.results,
+    upcoming: upcoming.results,
 };
 }

@@ -1,9 +1,10 @@
-import * as universal from '../entries/pages/_page.js';
+import * as universal from '../entries/pages/_page.ts.js';
 
 export const index = 2;
-export const component = async () => (await import('../entries/pages/_page.svelte.js')).default;
-export const file = '_app/immutable/components/pages/_page.svelte-8bc7c9b7.js';
+let component_cache;
+export const component = async () => component_cache ??= (await import('../entries/pages/_page.svelte.js')).default;
 export { universal };
-export const imports = ["_app/immutable/components/pages/_page.svelte-8bc7c9b7.js","_app/immutable/chunks/index-bd3d1439.js","_app/immutable/chunks/index-c98cd7b6.js","_app/immutable/modules/pages/_page.js-dc85b7cd.js","_app/immutable/chunks/_page-da46b06b.js"];
-export const stylesheets = ["_app/immutable/assets/_page-265a38f0.css"];
+export const universal_id = "src/routes/+page.ts";
+export const imports = ["_app/immutable/nodes/2.98ebfb41.js","_app/immutable/chunks/api.24b2cd97.js","_app/immutable/chunks/index.f9f2799d.js","_app/immutable/chunks/Carousel.761bebf2.js"];
+export const stylesheets = ["_app/immutable/assets/2.2afeb071.css","_app/immutable/assets/Carousel.4ee40529.css"];
 export const fonts = [];

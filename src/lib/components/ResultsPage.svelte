@@ -31,6 +31,10 @@ import type {MovieListResult} from '$lib/types';
     function handle_scroll(){
         const remining = viewport.scrollHeight - (viewport.scrollTop * viewport.clientHeight);
         console.log(remining);
+if(remining < 400){
+    dispatch('end');
+}
+
 a = Math.floor(viewport.scrollTop / item_height) * num_columns;
 b = Math.ceil((viewport.scrollTop + viewport.clientHeight) / item_height) * num_columns;
 
@@ -65,7 +69,6 @@ style:padding-bottom="{padding_bottom}px">
 
 <style>
     .viewport {
-        height: 200px;
         overflow-y: auto;
     }
     .results{

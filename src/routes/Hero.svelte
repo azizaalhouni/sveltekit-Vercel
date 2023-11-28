@@ -10,9 +10,8 @@
 
 
 </script>
-<h1>Hero</h1>
 
-<a href="/movie/{movie.id}" class="column">
+<a href="/movies/{movie.id}" class="column">
 <img 
 class="backdrop"
 alt={movie.title}

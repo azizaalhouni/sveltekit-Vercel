@@ -22,6 +22,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@supabase/supabase-js": "^2.39.0",
 		"svelte-burger-menu": "^2.0.5"
 	}
 }

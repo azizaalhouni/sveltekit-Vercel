@@ -5,7 +5,20 @@
 	"/about": [
 		"src/routes/about/+page.js"
 	],
-	"/movies/[view]": [
-		"src/routes/movies/[view]/+page.ts"
+	"/login": [
+		"src/routes/login/+page.server.js"
+	],
+	"/movies/[view=list]": [
+		"src/routes/movies/[view=list]/+page.ts"
+	],
+	"/movies/[id]": [
+		"src/routes/movies/[id]/+page.ts"
+	],
+	"/search": [
+		"src/routes/search/+page.ts"
+	],
+	"/watchlist": [
+		"src/routes/watchlist/+page.ts",
+		"src/routes/watchlist/+page.server.ts"
 	]
 }

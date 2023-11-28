@@ -1,0 +1,1 @@
+const n="https://api.movies.tastejs.com",o="https://image.tmdb.org/t/p";async function c(s,t,a){const e=new URLSearchParams(a);return await(await s(`${n}/${t}?${e}`)).json()}function i(s,t){return`${o}/w${t}${s}`}export{c as g,i as m};
